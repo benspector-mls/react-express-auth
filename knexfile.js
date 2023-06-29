@@ -4,7 +4,7 @@ const path = require('path');
 module.exports = {
   development: {
     client: 'pg',
-    connection: process.env.CONNECTION_STRING || {
+    connection: process.env.PG_CONNECTION_STRING || {
       host: process.env.PG_HOST || '127.0.0.1',
       port: process.env.PG_PORT || 5432,
       user: process.env.PG_USER || 'postgres',
@@ -31,7 +31,7 @@ module.exports = {
   },
   production: {
     client: 'pg',
-    connection: process.env.CONNECTION_STRING,
+    connection: process.env.PG_CONNECTION_STRING,
     migrations: {
       directory: path.join(__dirname, 'src', 'db', 'migrations'),
       stub: path.join(__dirname, 'migration-stub.js'),
